@@ -1,0 +1,490 @@
+:root{
+    --bg1:#fff0f6;
+    --bg2:#ffe4ef;
+    --pink:#ff4d88;
+    --pink2:#ff7ab3;
+    --rose:#ff2e74;
+    --text:#2b1b22;
+    --muted:#6a4855;
+    --card:#ffffffc9;
+    --border:#ffb3cf;
+    --shadow: 0 18px 60px rgba(255, 77, 136, .20);
+    --radius: 26px;
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color:var(--text);
+    background:
+      radial-gradient(900px 540px at 20% 15%, rgba(255,122,179,.45), transparent 60%),
+      radial-gradient(820px 520px at 85% 25%, rgba(255,77,136,.35), transparent 55%),
+      radial-gradient(900px 520px at 50% 110%, rgba(255,194,214,.65), transparent 55%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    overflow-x:hidden;
+  }
+  
+  /* Cute floating hearts background */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle, rgba(255,77,136,.16) 2px, transparent 3px),
+      radial-gradient(circle, rgba(255,122,179,.14) 2px, transparent 3px);
+    background-size: 42px 42px, 60px 60px;
+    background-position: 10px 10px, 22px 30px;
+    opacity:.9;
+  }
+  
+  /* Soft “paper” container feel */
+  .wrap{
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 18px 16px 70px;
+  }
+  
+  /* Remove dark professional background stuff if you still have it */
+  .bg{ display:none !important; }
+  
+  /* Top bar */
+  .top{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.65);
+    border-bottom: 1px solid rgba(255,179,207,.75);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(255,77,136,.10);
+  }
+  
+  .brand{ display:flex; gap:12px; align-items:center; }
+  .brand-icon{ width:34px; height:34px; }
+  .brand-title{
+    font-weight: 800;
+    letter-spacing: .2px;
+  }
+  .brand-sub{
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  
+  /* Cards */
+  .card{
+    background: var(--card);
+    border: 1px solid rgba(255,179,207,.85);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Buttons (cute + bouncy) */
+  .btn{
+    border: 1px solid rgba(255,179,207,.95);
+    background: rgba(255,255,255,.75);
+    color: var(--text);
+    padding: 11px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    box-shadow: 0 10px 22px rgba(255,77,136,.16);
+  }
+  .btn:hover{
+    transform: translateY(-2px) scale(1.02);
+    filter: saturate(1.05);
+  }
+  .btn:active{
+    transform: translateY(0) scale(.98);
+  }
+  .btn.primary{
+    border-color: rgba(255,77,136,.55);
+    background: linear-gradient(90deg, rgba(255,77,136,.95), rgba(255,122,179,.92));
+    color: white;
+    box-shadow: 0 16px 30px rgba(255,77,136,.28);
+  }
+  .btn.ghost{
+    background: rgba(255,255,255,.65);
+  }
+  
+  /* Little pill labels */
+  .pill{
+    font-size: 12px;
+    color: #7a4a5c;
+    padding: 7px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,179,207,.9);
+    background: rgba(255,240,246,.8);
+  }
+  
+  /* Hero */
+  .hero{
+    margin-top: 16px;
+    padding: 22px;
+    display:grid;
+    grid-template-columns: 1.25fr .95fr;
+    gap: 18px;
+    position: relative;
+    overflow:hidden;
+  }
+  
+  /* Cute heart corners */
+  .hero::before, .hero::after{
+    content:"💗";
+    position:absolute;
+    font-size: 40px;
+    opacity:.35;
+    filter: blur(.1px);
+  }
+  .hero::before{ left: 18px; top: 10px; transform: rotate(-12deg); }
+  .hero::after{ right: 18px; bottom: 8px; transform: rotate(12deg); }
+  
+  .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,77,136,.35);
+    background: rgba(255,240,246,.85);
+    width: fit-content;
+  }
+  .chip-icon{ width:18px; height:18px; }
+  
+  h1{
+    margin: 12px 0 8px;
+    font-size: clamp(34px, 4.6vw, 58px);
+    letter-spacing: -0.8px;
+    line-height: 1.05;
+  }
+  .name{
+    background: linear-gradient(90deg, var(--rose), var(--pink2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    text-shadow: 0 12px 30px rgba(255,77,136,.12);
+  }
+  
+  .sub{
+    margin: 0;
+    color: var(--muted);
+    max-width: 64ch;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .hero-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+  .hint{ margin-top: 10px; color: rgba(43,27,34,.70); font-size: 12px; }
+  
+  /* Hero art: less “tech”, more “cute” */
+  .hero-right{ display:grid; gap:12px; }
+  .hero-art{
+    height: 280px;
+    border-radius: 26px;
+    border: 1px solid rgba(255,179,207,.85);
+    background:
+      radial-gradient(800px 280px at 35% 25%, rgba(255,122,179,.55), transparent 55%),
+      radial-gradient(520px 240px at 75% 55%, rgba(255,77,136,.35), transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,240,246,.85));
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  .rose-big{
+    width: 170px;
+    height: 170px;
+    animation: bob 3s ease-in-out infinite;
+    filter: drop-shadow(0 20px 30px rgba(255,77,136,.25));
+  }
+  @keyframes bob{
+    50%{ transform: translateY(-6px) rotate(-1deg) scale(1.02); }
+  }
+  
+  .shine{
+    position:absolute;
+    inset:-120px -120px auto auto;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), transparent 60%);
+    transform: rotate(18deg);
+    opacity:.7;
+  }
+  
+  .mini-cards{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+  }
+  .mini{
+    border: 1px solid rgba(255,179,207,.85);
+    background: rgba(255,255,255,.75);
+    border-radius: 22px;
+    padding: 12px;
+  }
+  .mini-title{ color: rgba(43,27,34,.65); font-size: 12px; }
+  .mini-value{ font-weight: 800; margin-top: 6px; }
+  
+  /* Main grid */
+  .grid{
+    margin-top: 16px;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:14px;
+  }
+  .span7{ grid-column: span 7; padding: 16px; }
+  .span5{ grid-column: span 5; padding: 16px; }
+  
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom: 10px;
+  }
+  h2{ margin:0; font-size: 18px; letter-spacing: -.2px; }
+  .para{
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 15.8px;
+  }
+  
+  /* Reveal box (cute love letter vibe) */
+  .reveal{
+    margin-top: 12px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,77,136,.45);
+    background: linear-gradient(180deg, rgba(255,240,246,.95), rgba(255,255,255,.75));
+    padding: 14px;
+    display:none;
+    position:relative;
+  }
+  .reveal::before{
+    content:"💌";
+    position:absolute;
+    top:10px; right:14px;
+    opacity:.35;
+    font-size: 22px;
+  }
+  .reveal-head{ display:flex; gap:10px; align-items:center; }
+  .reveal-icon{ width:36px; height:36px; }
+  .reveal-title{ font-weight: 900; }
+  .reveal-sub{ color: rgba(43,27,34,.62); font-size: 12px; margin-top:2px; }
+  .reveal-body{
+    margin-top: 10px;
+    color: rgba(43,27,34,.90);
+    line-height: 1.65;
+  }
+  .reveal-actions{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
+  
+  /* Reasons list */
+  .reasons{
+    display:grid;
+    gap:10px;
+    margin-top: 10px;
+  }
+  .reason{
+    border: 1px solid rgba(255,179,207,.85);
+    background: rgba(255,255,255,.75);
+    border-radius: 22px;
+    padding: 12px;
+  }
+  .reason-title{ font-weight: 900; }
+  .reason-sub{ color: rgba(43,27,34,.70); margin-top: 4px; font-size: 13px; line-height: 1.5; }
+  
+  /* Gallery */
+  #gallerySection{ margin-top: 14px; padding: 16px; }
+  .muted{ color: var(--muted); margin: 8px 0 0; line-height: 1.6; }
+  
+  .gallery{
+    margin-top: 12px;
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap:10px;
+  }
+  .tile{
+    border-radius: 24px;
+    border: 1px solid rgba(255,179,207,.85);
+    background: rgba(255,255,255,.75);
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    transition: transform .16s ease, box-shadow .16s ease;
+    box-shadow: 0 14px 28px rgba(255,77,136,.12);
+  }
+  .tile:hover{
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(255,77,136,.18);
+  }
+  .tile img{
+    width:100%;
+    height: 210px;
+    object-fit: cover;
+    display:block;
+  }
+  .tile .cap{
+    position:absolute; left:10px; right:10px; bottom:10px;
+    padding: 10px 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(255,179,207,.85);
+    backdrop-filter: blur(10px);
+    font-size: 13px;
+    display:flex; justify-content:space-between; gap:10px;
+  }
+  .tile .cap span{ color: rgba(43,27,34,.75); }
+  .tile .cap b{ color: rgba(43,27,34,.95); }
+  
+  .footer{
+    margin-top: 18px;
+    text-align:center;
+    color: rgba(43,27,34,.55);
+    font-size: 12px;
+    padding: 14px 0 0;
+  }
+  
+  /* Modal */
+  .modal{ position:fixed; inset:0; display:none; z-index:50; }
+  .modal[aria-hidden="false"]{ display:block; }
+  .modal-backdrop{
+    position:absolute; inset:0;
+    background: rgba(255,77,136,.22);
+    backdrop-filter: blur(10px);
+  }
+  .modal-content{
+    position:relative;
+    width:min(920px, calc(100% - 24px));
+    margin: 70px auto 0;
+    padding: 14px;
+  }
+  .modal-close{ position:absolute; right:14px; top:14px; }
+  .modal-content img{
+    width:100%;
+    height: min(70vh, 560px);
+    object-fit: contain;
+    border-radius: 24px;
+    background: rgba(255,255,255,.75);
+    border: 1px solid rgba(255,179,207,.85);
+  }
+  .modal-caption{
+    margin-top: 10px;
+    color: rgba(43,27,34,.72);
+    font-size: 14px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 920px){
+    .hero{ grid-template-columns: 1fr; }
+    .span7,.span5{ grid-column: span 12; }
+    .gallery{ grid-template-columns: 1fr; }
+    .tile img{ height: 240px; }
+  }
+/* ---------- CENTERING & BALANCE OVERRIDES ---------- */
+
+/* Make the whole main content feel centered */
+.wrap{
+    max-width: 980px;          /* slightly narrower = less left-heavy */
+    margin: 0 auto;
+  }
+  
+  /* HERO: center content + balance columns */
+  .hero{
+    grid-template-columns: 1fr;     /* stack by default */
+    text-align: center;
+    padding: 26px 18px;
+  }
+  
+  /* Make hero-left centered */
+  .hero-left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  /* Make hero right align center too */
+  .hero-right{
+    width:100%;
+    max-width: 520px;              /* keeps it from stretching weird */
+    margin: 10px auto 0;
+  }
+  
+  /* Put CTA buttons centered */
+  .hero-cta{
+    justify-content:center;
+  }
+  
+  /* Center chip */
+  .chip{
+    margin: 0 auto;
+  }
+  
+  /* Make h1 and paragraphs not hug the left edge */
+  .sub, .para, .muted{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  /* GRID SECTIONS: make them balanced */
+  .grid{
+    grid-template-columns: 1fr;   /* stack the 2 cards */
+  }
+  
+  /* Ensure these cards are centered and same width */
+  .span7, .span5{
+    grid-column: auto;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  
+  /* Gallery centered too */
+  #gallerySection{
+    width: 100%;
+    max-width: 920px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  /* Gallery tiles centered look */
+  .gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+  }
+  
+  .tile{
+    width: 100%;
+  }
+  
+  /* Responsive: keep it nice on small screens */
+  @media (max-width: 920px){
+    .gallery{ grid-template-columns: 1fr; }
+  }
+/* Ensure top bar is always clickable and above everything */
+.top{
+    position: sticky;
+    top: 0;
+    z-index: 9999 !important;
+  }
+  
+  .bg, .blob, .grain, body::before{
+    pointer-events: none !important;  /* background can never block clicks */
+  }
+  .hero, .wrap, .card{
+    position: relative;
+    z-index: 1;
+  }
+/* CLICK FIX PATCH */
+.top{ z-index: 9999 !important; }
+.bg, .blob, .grain, body::before, .petal{ pointer-events:none !important; }
+  

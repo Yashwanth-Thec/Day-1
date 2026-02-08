@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Rose Day 🌹</title>
+  <meta name="description" content="A Rose Day surprise page." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Background glow blobs -->
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="top">
+    <div class="brand">
+      <img src="rose-removebg-preview.png" alt="Rose" class="brand-icon">
+      <div>
+        <div class="brand-title">Rose Day</div>
+        <div class="brand-sub">Bangaram this is just a small page that carries big feelings</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button class="btn ghost" id="togglePetals">Petals: On</button>
+      <button class="btn primary" id="openLetter">Open the Rose 🌹</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero card">
+      <div class="hero-left">
+        <div class="chip">
+          <img src="heart.svg" alt="Heart" class="chip-icon">
+          <span>Happy Rose Day Bangarammmm</span>
+        </div>
+
+        <h1>
+          To <span class="name" id="herName">My Sneha Baby</span>,
+          <br/>
+          you’re my favorite everything forever baby.
+        </h1>
+
+        <p class="sub" id="heroNote">
+
+          Bangaram I know this isn't much but I wanted our first rose day together to be remebered for the awesome human being your are.
+          So here’s a page that’s yours.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn primary" id="scrollGallery">See our memories</button>
+        </div>
+
+      <div class="hero-right">
+        <div class="hero-art">
+          <img src="rose-removebg-preview.png" alt="Rose" class="rose-big">
+          <div class="shine"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love letter + Reveal -->
+    <section class="grid">
+      <section class="card span7" id="letterSection">
+        <div class="card-head">
+          <h2>My note to you 💌</h2>
+          <span class="pill">tap “Open the Rose” anytime</span>
+        </div>
+
+        <p class="para" id="longNote">
+            Bangaram today is Rose Day, I know I haven't given you any roses till now.
+            But I wanted to give you something that doesn't fade to represent my ever lasting love for you. 
+            Because in my eyes there no one else that is as beautiful as you, 
+            No one else that is as sweet as you, 
+            No one else that brightens up my life like you.
+            Infront of your beauty even an entire Island of roses stands no chance. 
+            Thank you bangram, Thank you for existing, Thank you for being who you are.
+            I am soooo sooo proud of you my baby you are genuienly the sweetest most amazing person to ever exist. 
+            And to be called yours brings me the most joy in this universe. 
+            For you I would spend a whole lifetime gathering roses to show your beauty but that would still not be enough.
+        </p>
+
+        <div class="reveal" id="revealBox" aria-hidden="true">
+          <div class="reveal-head">
+            <img src="rose-removebg-preview.png" alt="rose" class="reveal-icon">
+            <div>
+              <div class="reveal-title">My rose for you</div>
+              <div class="reveal-sub">Bangaram a small tiny secret, just for you.</div>
+            </div>
+          </div>
+          <div class="reveal-body" id="revealText">
+            If I could, I’d hand you a real rose right now.
+            Until then this page is my way of saying:
+            <b>I love you more than anything words can carry.</b> 🌹❤️
+            <br/><br/>
+            <b>Question:</b> I know I have asked you this in last webiste too but will you be my Valentine bangaramm? 
+          </div>
+
+          <div class="reveal-actions">
+            <button class="btn primary" id="yesBtn">Yes 😳</button>
+            <button class="btn ghost" id="noBtn">No (not allowed)</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="reasons" id="reasonsList">
+        <!-- populated by JS -->
+      </div>
+    </section>
+  </section>
+
+    <!-- Gallery -->
+    <section class="card" id="gallerySection">
+      <div class="card-head">
+        <h2>Our little gallery </h2>
+        <span class="pill">click a photo</span>
+      </div>
+
+
+      <div class="gallery" id="galleryGrid">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal for images -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content card">
+      <button class="modal-close btn ghost" id="modalClose">Close</button>
+      <img id="modalImg" alt="Memory" />
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <script src="petals.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
